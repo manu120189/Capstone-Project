@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:weightSum="1">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/card_view_height_small"
+        android:layout_margin="@dimen/card_view_margin"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/section_bg">
+
+
+            <ImageView
+                android:id="@+id/champion_image"
+                android:layout_width="@dimen/champion_profile_width"
+                android:layout_height="@dimen/champion_profile_width"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_sample"
+                android:layout_margin="@dimen/margin_champion_profile"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/champion_name"
+                android:textColor="@color/card_text_color"
+                android:layout_alignTop="@+id/champion_image"
+                android:layout_toRightOf="@+id/champion_image"
+                android:layout_toEndOf="@+id/champion_image"
+                android:layout_margin="@dimen/name_margin"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/champion_role"
+                android:textColor="@color/card_text_color"
+                android:textSize="@dimen/tab_label"
+                android:layout_below="@+id/champion_name"
+                android:layout_alignLeft="@+id/champion_name"
+                android:layout_alignStart="@+id/champion_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/level_30"
+                android:id="@+id/level"
+                android:textSize="@dimen/subtitle_text_size"
+                android:textColor="@color/card_text_color"
+                android:layout_alignBottom="@+id/champion_image"
+                android:layout_alignLeft="@+id/champion_name"
+                android:layout_alignStart="@+id/champion_name" />
+
+            <ImageView
+                android:id="@+id/league_image"
+                android:layout_width="@dimen/spell_size"
+                android:layout_height="@dimen/spell_size"
+                android:scaleType="centerCrop"
+                android:src="@drawable/provisional"
+                android:layout_above="@+id/league_points"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/unranked"
+                android:id="@+id/league_title"
+                android:textColor="@color/card_text_color"
+                android:textSize="@dimen/subtitle_text_size_smaller"
+                android:layout_alignTop="@+id/champion_name"
+                android:layout_alignLeft="@+id/league_image"
+                android:layout_alignStart="@+id/league_image"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/ptos_0"
+                android:id="@+id/league_points"
+                android:textColor="@color/card_text_color"
+                android:textSize="@dimen/subtitle_text_size_smaller"
+                android:layout_alignBottom="@+id/champion_image"
+                android:layout_alignLeft="@+id/league_title"
+                android:layout_alignStart="@+id/league_title"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>

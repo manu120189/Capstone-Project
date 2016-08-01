@@ -1,0 +1,476 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sociallol.org.com.sociallol.ui.ChampionDetailActivityFragment"
+    android:background="@color/general_bg">
+    <TextView
+        android:id="@+id/champion_detail_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:textColor="@color/text_white"
+        android:textSize="@dimen/general_empty_size"
+        android:text="@string/no_champion_information" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/general_bg"
+    android:orientation="vertical"
+    android:id="@+id/champion_detail_container"
+    android:visibility="gone">
+
+    <RelativeLayout
+        android:id="@+id/champion_splash"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/champion_splash_height"
+        android:padding="@dimen/champion_splash_padding"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <ImageView
+            android:id="@+id/champion_image"
+            android:src="@drawable/profile_placeholder"
+            android:layout_width="@dimen/champion_profile_detail_width"
+            android:layout_height="@dimen/champion_profile_detail_heigth"
+            android:scaleType="centerCrop"
+            android:layout_marginLeft="@dimen/champion_profile_detail_margin"
+            android:layout_marginStart="@dimen/champion_profile_detail_margin"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/champion_profile_detail_margin" />
+
+
+        <TextView
+            android:id="@+id/champion_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text=""
+            android:textColor="@color/text_white"
+            android:textStyle="bold"
+            android:layout_alignTop="@+id/champion_image"
+            android:layout_toRightOf="@+id/champion_image"
+            android:layout_toEndOf="@+id/champion_image"
+            android:layout_margin="@dimen/name_margin"
+            android:textSize="@dimen/champion_name"/>
+
+        <TextView
+            android:id="@+id/champion_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/champion_role"
+            android:layout_below="@+id/champion_name"
+            android:layout_alignLeft="@+id/champion_name"
+            android:layout_alignStart="@+id/champion_name" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/opacity_bg"
+        android:padding="@dimen/general_padding_section"
+        android:layout_marginTop="@dimen/margin_champion_profile"
+        android:id="@+id/relativeLayout2"
+        android:layout_below="@+id/champion_splash">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/spells"
+            android:textColor="@color/subtitle_high"
+            android:layout_margin="@dimen/name_margin"
+            android:id="@+id/textView10"
+            android:textSize="@dimen/subtitle_text_size"/>
+
+        <ImageView
+            android:id="@+id/passive_image"
+            android:layout_width="@dimen/spell_size"
+            android:layout_height="@dimen/spell_size"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/textView10"
+            android:layout_margin="@dimen/name_margin"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/passive_name"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/champion_role"
+            android:layout_alignTop="@+id/passive_image"
+            android:layout_toRightOf="@+id/passive_image"
+            android:layout_toEndOf="@+id/passive_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/textView4"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/passive_name"
+            android:layout_alignLeft="@+id/passive_name"
+            android:layout_alignStart="@+id/passive_name" />
+
+        <TextView
+            android:id="@+id/passive_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/passive_image"
+            android:layout_alignLeft="@+id/passive_image"
+            android:layout_alignStart="@+id/passive_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/text_white"
+            android:layout_below="@+id/passive_description"
+            android:layout_marginTop="@dimen/separator_margin_top"
+            android:layout_marginBottom="@dimen/separator_margin_top"
+            android:layout_marginLeft="@dimen/separator_margin"
+            android:layout_marginStart="@dimen/separator_margin"
+            android:layout_marginRight="@dimen/separator_margin"
+            android:layout_marginEnd="@dimen/separator_margin"
+            android:id="@+id/textView22" />
+
+        <ImageView
+            android:id="@+id/spell_image_1"
+            android:layout_width="@dimen/spell_size"
+            android:layout_height="@dimen/spell_size"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/textView22"
+            android:layout_alignLeft="@+id/textView22"
+            android:layout_alignStart="@+id/textView22" />
+
+        <TextView
+            android:id="@+id/spell_name_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/champion_role"
+            android:layout_below="@+id/textView22"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/spell_cooldown_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/q_spell"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_name_1"
+            android:layout_toRightOf="@+id/passive_image"
+            android:layout_toEndOf="@+id/passive_image" />
+
+        <TextView
+            android:id="@+id/spell_description_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_image_1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/spell_image_1"
+            android:layout_alignStart="@+id/spell_image_1" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:background="@color/text_white"
+            android:layout_below="@+id/spell_description_1"
+            android:layout_marginTop="@dimen/separator_margin_top"
+            android:layout_marginBottom="@dimen/separator_margin_top"
+            android:layout_marginLeft="@dimen/separator_margin"
+            android:layout_marginStart="@dimen/separator_margin"
+            android:layout_marginRight="@dimen/separator_margin"
+            android:layout_marginEnd="@dimen/separator_margin"
+            android:id="@+id/textView23" />
+
+        <ImageView
+            android:id="@+id/spell_image_2"
+            android:layout_width="@dimen/spell_size"
+            android:layout_height="@dimen/spell_size"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/textView23"
+            android:layout_alignLeft="@+id/textView23"
+            android:layout_alignStart="@+id/textView23" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/spell_name_2"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/textView23"
+            android:layout_alignLeft="@+id/spell_cooldown_1"
+            android:layout_alignStart="@+id/spell_cooldown_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/w_spell"
+            android:id="@+id/textView25"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_name_2"
+            android:layout_alignLeft="@+id/spell_name_2"
+            android:layout_alignStart="@+id/spell_name_2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/spell_description_2"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_image_2"
+            android:layout_alignLeft="@+id/spell_image_2"
+            android:layout_alignStart="@+id/spell_image_2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"
+            android:layout_below="@+id/spell_description_2"
+            android:layout_marginTop="@dimen/separator_margin_top"
+            android:layout_marginBottom="@dimen/separator_margin_top"
+            android:layout_marginLeft="@dimen/separator_margin"
+            android:layout_marginStart="@dimen/separator_margin"
+            android:layout_marginRight="@dimen/separator_margin"
+            android:layout_marginEnd="@dimen/separator_margin"
+            android:id="@+id/textView27" />
+
+        <ImageView
+            android:id="@+id/spell_image_3"
+            android:layout_width="@dimen/spell_size"
+            android:layout_height="@dimen/spell_size"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/textView27"
+            android:layout_alignLeft="@+id/textView27"
+            android:layout_alignStart="@+id/textView27" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/spell_name_3"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/champion_role"
+            android:layout_below="@+id/textView27"
+            android:layout_toRightOf="@+id/passive_image"
+            android:layout_toEndOf="@+id/passive_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/e_spell"
+            android:id="@+id/textView29"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_name_3"
+            android:layout_alignLeft="@+id/spell_name_3"
+            android:layout_alignStart="@+id/spell_name_3" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/spell_description_3"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_image_3"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/spell_image_3"
+            android:layout_alignStart="@+id/spell_image_3" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:background="@color/text_white"
+            android:layout_below="@+id/spell_description_3"
+            android:layout_marginTop="@dimen/separator_margin_top"
+            android:layout_marginBottom="@dimen/separator_margin_top"
+            android:layout_marginLeft="@dimen/separator_margin"
+            android:layout_marginStart="@dimen/separator_margin"
+            android:layout_marginRight="@dimen/separator_margin"
+            android:layout_marginEnd="@dimen/separator_margin"
+            android:id="@+id/textView31" />
+
+        <ImageView
+            android:id="@+id/spell_image_4"
+            android:layout_width="@dimen/spell_size"
+            android:layout_height="@dimen/spell_size"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/textView31"
+            android:layout_alignLeft="@+id/textView10"
+            android:layout_alignStart="@+id/textView10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/spell_name_4"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/champion_role"
+            android:layout_below="@+id/textView31"
+            android:layout_toRightOf="@+id/passive_image"
+            android:layout_toEndOf="@+id/passive_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="R spell"
+            android:id="@+id/textView33"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_name_4"
+            android:layout_toRightOf="@+id/passive_image"
+            android:layout_toEndOf="@+id/passive_image" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/spell_description_4"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/spell_image_4"
+            android:layout_alignLeft="@+id/textView31"
+            android:layout_alignStart="@+id/textView31" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/opacity_bg"
+        android:padding="@dimen/general_padding_section"
+        android:id="@+id/relativeLayout3"
+        android:layout_marginTop="@dimen/separator_margin"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/tips"
+            android:textColor="@color/subtitle_high"
+            android:layout_margin="@dimen/name_margin"
+            android:id="@+id/textView6"
+            android:textSize="@dimen/subtitle_text_size" />
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/textView6"
+            android:layout_alignLeft="@+id/textView6"
+            android:layout_alignStart="@+id/textView6" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/opacity_bg"
+        android:padding="@dimen/general_padding_section"
+        android:layout_marginTop="@dimen/name_margin"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Counter Tips"
+            android:textColor="@color/subtitle_high"
+            android:layout_margin="@dimen/name_margin"
+            android:id="@+id/textView12"
+            android:textSize="@dimen/subtitle_text_size" />
+
+        <TextView
+            android:id="@+id/counter_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/textView12"
+            android:layout_alignLeft="@+id/textView12"
+            android:layout_alignStart="@+id/textView12" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/opacity_bg"
+        android:padding="@dimen/general_padding_section"
+        android:id="@+id/relativeLayout5"
+        android:layout_below="@+id/relativeLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/separator_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/history"
+            android:textColor="@color/subtitle_high"
+            android:layout_margin="@dimen/name_margin"
+            android:id="@+id/textView14"
+            android:textSize="@dimen/subtitle_text_size" />
+
+        <TextView
+            android:id="@+id/history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/subtitle_text_size"
+            android:layout_below="@+id/textView14"
+            android:layout_alignLeft="@+id/textView14"
+            android:layout_alignStart="@+id/textView14" />
+    </RelativeLayout>
+
+</LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">LoL Social</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- SyncAdapter related -->
+    <string name="sync_account_type">sociallol.example.com</string>
+    <string name="content_authority">sociallol.org.com.sociallol</string>
+    <string name="title_activity_summoner_detail">SummonerDetailActivity</string>
+    <string name="title_activity_champion_detail">ChampionDetailActivity</string>
+
+    <string name="getting_champion_information">Getting champion information!</string>
+    <string name="please_wait">Please wait a second...</string>
+    <string name="recent_matches">Recent Matches</string>
+    <string name="friends">Friends</string>
+    <string name="champions">Champions</string>
+    <string name="search">Search</string>
+    <string name="error_msg">Sorry an error occurred getting the data from the server, please try again later.</string>
+    <string name="loading">Loading data</string>
+    <string name="duration">Duration: </string>
+    <string name="searching">Searching!</string>
+    <string name="no_results">No results found for: </string>
+    <string name="level">Level </string>
+    <string name="summoner_removed">Summoner removed from your friends list</string>
+    <string name="summoner_added">Summoner added to your friends list!</string>
+    <string name="winrate">Winrate </string>
+    <string name="getting_summoner_data">Getting summoner data!</string>
+    <string name="no_champion_information">No champion information available!</string>
+    <string name="spells">Spells</string>
+    <string name="q_spell">Q spell</string>
+    <string name="w_spell">W spell</string>
+    <string name="e_spell">E spell</string>
+    <string name="r_spell">R spell</string>
+    <string name="tips">Tips</string>
+    <string name="history">History</string>
+    <string name="no_champions">No champions to show, maybe the server is down, sorry!</string>
+    <string name="no_friends">No friends added yet, go to the search tab and start the fun!</string>
+    <string name="no_matches">No matches information available, have you added any friends?</string>
+    <string name="type_name">Type a name and search for a friend!</string>
+    <string name="no_summoner">No summoner information available.</string>
+    <string name="averages">Averages</string>
+    <string name="gold">Gold</string>
+    <string name="creep_score">Creep Score</string>
+    <string name="top_champions">Top Champions</string>
+    <string name="team_55">Team 5vs5</string>
+    <string name="team_33">Team 3vs3</string>
+    <string name="solo">Solo/Duo</string>
+    <string name="unranked">Unranked</string>
+    <string name="level_30">Level 30</string>
+    <string name="ptos_0">0 Pts</string>
+    <string name="win">Win</string>
+    <string name="loss">Loss</string>
+    <string name="free_rotation">Free rotation</string>
+    <string name="search_friends">Search friends...</string>
+
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#607D8B</color>
+    <color name="colorPrimaryDark">#455A64</color>
+    <color name="textColorPrimary">#212121</color>
+    <color name="windowBackground">#455A64</color>
+    <color name="navigationBarColor">#CFD8DC</color>
+    <color name="colorAccent">#7C4DFF</color>
+    <color name="card_text_color">#9da0a3</color>
+    <color name="game_win">#00fa01</color>
+    <color name="game_loss">#F44336</color>
+    <color name="general_bg">#192029</color>
+    <color name="section_bg">#222930</color>
+    <color name="text_white">#ffffff</color>
+    <color name="opacity_bg">#E6222930</color>
+    <color name="subtitle_high">#b3a042</color>
+    <color name="win_status">#03ea04</color>
+</resources>

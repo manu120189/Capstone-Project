@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/champion_splash_padding"
+    android:background="@color/general_bg">
+
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/free_rotation"
+        android:textColor="@color/subtitle_high"/>
+    <LinearLayout
+        android:id="@+id/first_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/header_title"
+        >
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="@dimen/league_sq"
+                android:layout_weight="2"
+                android:layout_margin="@dimen/separator_height"
+                android:src="@drawable/profile_placeholder"/>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="@dimen/league_sq"
+                android:layout_weight="2"
+                android:layout_margin="@dimen/separator_height"
+                android:src="@drawable/profile_placeholder"/>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="@dimen/league_sq"
+                android:layout_weight="2"
+                android:layout_margin="@dimen/separator_height"
+                android:src="@drawable/profile_placeholder"/>
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="@dimen/league_sq"
+                android:layout_weight="2"
+                android:layout_margin="@dimen/separator_height"
+                android:src="@drawable/profile_placeholder"/>
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="@dimen/no_dp"
+                android:layout_height="@dimen/league_sq"
+                android:layout_weight="2"
+                android:layout_margin="@dimen/separator_height"
+                android:src="@drawable/profile_placeholder"/>
+
+
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/first_row">
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/league_sq"
+        android:layout_weight="2"
+        android:layout_margin="@dimen/separator_height"
+        android:src="@drawable/profile_placeholder"/>
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/league_sq"
+        android:layout_weight="2"
+        android:layout_margin="@dimen/separator_height"
+        android:src="@drawable/profile_placeholder"/>
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/league_sq"
+        android:layout_weight="2"
+        android:layout_margin="@dimen/separator_height"
+        android:src="@drawable/profile_placeholder"/>
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/league_sq"
+        android:layout_weight="2"
+        android:layout_margin="@dimen/separator_height"
+        android:src="@drawable/profile_placeholder"/>
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="@dimen/no_dp"
+        android:layout_height="@dimen/league_sq"
+        android:layout_weight="2"
+        android:layout_margin="@dimen/separator_height"
+        android:src="@drawable/profile_placeholder"/>
+
+
+</LinearLayout>
+</RelativeLayout>
