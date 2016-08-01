@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "547103804743",
+    "project_id": "digital-equator-822"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547103804743:android:a8f21334da184852",
+        "android_client_info": {
+          "package_name": "sociallol.org.com.socialol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547103804743.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzX53tHPAg3lFBw91RRg4fJ_lpCUw449U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-81731947-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

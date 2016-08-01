@@ -54,7 +54,9 @@ public class ChampionsAdapter extends RecyclerView.Adapter<ChampionsAdapter.Cham
     public void swap(List<Champion> champions){
         Log.d(TAG,"Swapping data for champions.");
         this.champions.clear();
-        this.champions.addAll(champions);
+        if (champions != null){
+            this.champions.addAll(champions);
+        }
         notifyDataSetChanged();
     }
 

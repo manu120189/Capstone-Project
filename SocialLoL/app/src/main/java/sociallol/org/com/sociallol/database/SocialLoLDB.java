@@ -1,5 +1,7 @@
 package sociallol.org.com.sociallol.database;
 
+import android.database.Cursor;
+
 import java.util.List;
 
 import sociallol.org.com.sociallol.database.models.Champion;
@@ -27,6 +29,7 @@ public interface SocialLoLDB {
     void deleteSummoner(Long summonerId);
     List<SummonerFriend> getSummonerFriends();
     List<Champion> getChampions();
+    Cursor getChampionsCursor();
     int getFirstChampionId();
     Long getFirstSummonerId();
 }

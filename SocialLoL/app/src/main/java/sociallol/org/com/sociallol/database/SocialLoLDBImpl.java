@@ -1,9 +1,13 @@
 package sociallol.org.com.sociallol.database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.util.Log;
 
+import com.j256.ormlite.android.AndroidDatabaseResults;
+import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
@@ -108,6 +112,21 @@ public class SocialLoLDBImpl implements SocialLoLDB {
     public List<Champion> getChampions(){
         try {
             return getChampionDAO().queryBuilder().orderBy("championName", true).query();
+        } catch (SQLException e) {
+            Log.e("", "Error getting the list of champions friends");
+            return null;
+        }
+    }
+
+    public Cursor getChampionsCursor(){
+        try {
+            RuntimeExceptionDao<Champion, Integer> championDAO = getChampionDAO();
+            QueryBuilder<Champion, Integer> championIntegerQueryBuilder =
+                    championDAO.queryBuilder().orderBy("championName", true);
+            CloseableIterator<Champion> iterator = championDAO.iterator(championIntegerQueryBuilder.prepare());
+            AndroidDatabaseResults results =
+                    (AndroidDatabaseResults)iterator.getRawResults();
+            return results.getRawCursor();
         } catch (SQLException e) {
             Log.e("", "Error getting the list of champions friends");
             return null;

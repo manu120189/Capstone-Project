@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     tools:context="sociallol.org.com.sociallol.ui.SummonerDetailActivityFragment"
     tools:showIn="@layout/activity_summoner_detail"
     android:background="@color/general_bg">
@@ -30,7 +31,7 @@
         android:layout_height="match_parent"
         android:id="@+id/summoner_detail_container"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -96,6 +97,15 @@
                 android:layout_marginEnd="@dimen/champion_role_margin_rigth" />
 
         </RelativeLayout>
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/ad_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            android:background="@color/general_bg"/>
 
         <RelativeLayout
             android:layout_width="match_parent"

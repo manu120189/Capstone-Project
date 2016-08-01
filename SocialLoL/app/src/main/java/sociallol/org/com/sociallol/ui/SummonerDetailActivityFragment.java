@@ -21,6 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -65,6 +68,7 @@ public class SummonerDetailActivityFragment extends Fragment {
     public static final String RANKED_TEAM_5_X_5 = "RANKED_TEAM_5x5";
     public static final String API_ERROR = "API_ERROR";
     public static final String RESULT_TAG = "result";
+    public static final String AD_KEY = "ca-app-pub-3940256099942544~3347511713";
     public static LoLAPI lolService;
     private SocialLoLDB socialLoLDB;
     private ProgressDialog progress;
@@ -72,6 +76,7 @@ public class SummonerDetailActivityFragment extends Fragment {
     private Target mTarget;
     private String summonerId;
     private boolean isTwoPane;
+    private AdView mAdView;
     public SummonerDetailActivityFragment() {
     }
 
@@ -87,7 +92,9 @@ public class SummonerDetailActivityFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         lolService = LoLAPI.create();
-        socialLoLDB = new SocialLoLDBImpl(getContext());//SocialLoLDBImpl.getInstance(getContext());
+        socialLoLDB = new SocialLoLDBImpl(getContext());
+        // Initialize the Mobile Ads SDK.
+        MobileAds.initialize(getActivity(), AD_KEY);
     }
 
     public static SummonerDetailActivityFragment create(String summonerId,
@@ -115,6 +122,19 @@ public class SummonerDetailActivityFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        // Gets the ad view defined in layout/ad_fragment.xml with ad unit ID set in
+        // values/strings.xml.
+        mAdView = (AdView) getView().findViewById(R.id.ad_view);
+        // Create an ad request. Check your logcat output for the hashed device ID to
+        // get test ads on a physical device. e.g.
+        // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        // Start loading the ad in the background.
+        mAdView.loadAd(adRequest);
+
         if (getActivity() instanceof  SummonerDetailActivity){
             SummonerDetailActivity summonerDetailActivity = (SummonerDetailActivity) getActivity();
             summonerId = summonerDetailActivity.getSummonerId();
@@ -126,7 +146,30 @@ public class SummonerDetailActivityFragment extends Fragment {
         setFabButton(Long.valueOf(summonerId));
 
     }
-
+    /** Called when leaving the activity */
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+    /** Called when returning to the activity */
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+    /** Called before the activity is destroyed */
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
     private void setFabButton(final Long summonerId) {
         fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         if (socialLoLDB.summonerFriendExistsInDatabase(summonerId)){

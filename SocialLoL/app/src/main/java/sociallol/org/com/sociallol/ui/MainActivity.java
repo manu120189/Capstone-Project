@@ -23,9 +23,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import sociallol.org.com.sociallol.AnalyticsApplication;
 import sociallol.org.com.sociallol.R;
 import sociallol.org.com.sociallol.database.models.Champion;
 import sociallol.org.com.sociallol.database.models.Summoner;
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int FRAGMENT_FRIENDS_POSITION = 1;
     public static final int FRAGMENT_CHAMPIONS_POSITION = 2;
     public static final int FRAGMENT_SEARCH_POSITION = 3;
+    public static final String[] PAGER_TITLES = new String[]{"Recent Matches", "Friends", "Champions", "Search"};
     public static final int SUMMONER_PROFILE_ERROR = 15;
     public static final int SUMMONER_PROFILE_FRIEND_ADDED = 17;
     public static final int SUMMONER_PROFILE = 16;
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private MenuItem searchMenuItem;
     private ViewPagerAdapter adapter;
     private ProgressDialog progress;
-
+    private Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,14 +66,27 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+        // Obtain the shared Tracker instance.
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        tracker = application.getDefaultTracker();
 
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        // When the visible image changes, send a screen view hit.
+        setupViewPager(viewPager);
+        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                sendScreenPageName();
+            }
+        });
+        sendScreenPageName();
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
         SocialLoLSyncAdapter.initializeSyncAdapter(this);
+
+
     }
     private int[] tabIcons = {
             R.drawable.ranking,
@@ -76,7 +94,15 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.champions,
             R.drawable.search
     };
+    private void sendScreenPageName() {
+        int position = viewPager.getCurrentItem();
 
+        // [START screen_view_hit]
+        Log.i(TAG, "Setting screen name: " + PAGER_TITLES[position]);
+        tracker.setScreenName("Screen-" + PAGER_TITLES[position]);
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
+        // [END screen_view_hit]
+    }
 
     private void setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
